@@ -1,8 +1,7 @@
 # Pololu Zumo32U4 exercises
 
-Version: 1.0.1<br/>
-Based on Pololu software and git repo.<br/>
-Find out more at http://robotwars.labben.org
+Version: 2.0.0<br/>
+Based on Pololu software and git repo, but reworked to run on PlatformIO.<br/>
 
 ## Summary
 
@@ -10,40 +9,43 @@ The Zumo 32U4 robot consists of the Zumo chassis, the Zumo 32U4 Main Board, and 
 
 https://www.pololu.com/docs/0J63
 
-Note: Sumo rules dictate that the robot field is black with white borders. The code in our exercise has been modified to supported an inverted field (white with black borders).
+Note: Sumo rules dictate that the robot field is black with white borders. The code in our exercise has been modified to supported an inverted field aswell (white with black borders).
 
 ## Setup
 
-### Install Arduino IDE
+Install VS Code: https://code.visualstudio.com/download
 
-Install latest Arduino IDE from http://www.arduino.cc/en/Main/Software
-
-### Installing the library
-
-Use the Library Manager to install this library:
-
-1. In the Arduino IDE, open the "Sketch" menu, select "Include Library", then "Manage Libraries...".
-2. Search for "Zumo32U4".
-3. Click the Zumo32U4 entry in the list.
-4. Click "Install".
-
-### Installing drivers (Windows only)
-
-Windows users need to install drivers first. Follow this tutorial: https://www.pololu.com/docs/0J63/5.1
-Linux / OSX should have the driver preinstalled.
-
-### Setting up Arduino IDE to program Zumo 32U4
-
-Follow this tutorial: https://www.pololu.com/docs/0J63/5.2
+And then add the PlatformIO-extension: https://platformio.org/install/ide?install=vscode
 
 ## Exercises
 
-Clone this repo and solve the lessons provided. By solving all lessons you will be able to put together the bare minimums to qualify for a Sumo match. Read more about the Sumo match rules at http://robotwars.labben.org
+Clone this repo and solve the lessons provided. By solving all lessons you will be able to put together the bare minimums to qualify for a Sumo match.
 
-Try to solve the lessons only using the documentation provided here: http://pololu.github.io/zumo-32u4-arduino-library/annotated.html
+Try to solve the lessons only using the documentation provided here: https://pololu.github.io/zumo-32u4-arduino-library/
 
-## Documentation
+## Sumo matches
 
-Arduino programming language reference: https://www.arduino.cc/en/Reference/HomePage
-</br>
-For complete Pololu Z32U4 documentation, see http://pololu.github.io/zumo-32u4-arduino-library/index.html.  If you are already on that page, then click on the links in the "Classes and functions" section above.
+- Each match consists of 3 rounds, each lasting a maximum of 90 seconds.
+
+- Robot that wins most rounds wins the match.
+
+- The match loser is disqualified from the tournament.
+
+- If the case of an undecided match, sudden death rules apply.
+
+- Robots will start facing outwards! NOT towards each other.
+
+- Deliberate damage to Robots will result in disqualification.
+
+- It is not permitted to make any changes to the physical properties of the robots.
+
+- The Game Masters decision is final.
+
+- No changes to the Robot’s can be made during a match.
+
+- Robots will delivered to the Game Master before each Match.
+
+- The Game Master will activate both Robots simultaneously at the start of each Round.
+
+- Robots must be activated by pressing the ‘B’ button. At this point the Robot must make a single “beep” sound and then wait 5 seconds before moving: Failure to do both of these will result in the robot forfeiting the round.
+

@@ -1,6 +1,7 @@
 /* This lesson will teach you how to interface with
 the pushbuttons on the Zumo.*/
 
+#include <Arduino.h>
 #include <Wire.h>
 #include <Zumo32U4.h>
 
