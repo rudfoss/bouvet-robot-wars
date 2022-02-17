@@ -47,5 +47,5 @@ Try to solve the lessons only using the documentation provided here: https://pol
 
 - The Game Master will activate both Robots simultaneously at the start of each Round.
 
-- Robots must be activated by pressing the ‘B’ button. At this point the Robot must make a single “beep” sound and then wait 5 seconds before moving: Failure to do both of these will result in the robot forfeiting the round.
+- Robots must be activated by pressing the ‘B’ button. At this point the Robot must make a single “beep” sound and then wait 5 seconds before moving: <b>Failure to do both of these will result in the robot forfeiting the round.</b>
 
