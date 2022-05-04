@@ -32,7 +32,10 @@ void waitForButtonAndCountDown()
   lcd.clear();
   lcd.print(F("Press B"));
 
-  buttonB.waitForButton();
+  while (!buttonB.isPressed()){
+    lcd.gotoXY(0, 1);
+    lcd.print(String(float(readBatteryMillivolts())/1000) + "V");
+  }
 
   ledYellow(0);
   lcd.clear();
