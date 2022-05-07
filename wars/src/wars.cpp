@@ -28,28 +28,23 @@ unsigned int lineSensorValues[NUM_SENSORS];
 
 void waitForButtonAndCountDown()
 {
-  /* 1. See setup() */
-  /* 2. Turn on yellow LED, clear LCD and add "Press B" text to LCD */
-  ledYellow(true);
+  ledYellow(1);
   lcd.clear();
-  lcd.print(F("Press B"));
+  lcd.print(F("Ready?"));
 
+  while (!buttonB.isPressed()){
+    lcd.gotoXY(0, 1);
+    lcd.print(String(float(readBatteryMillivolts())/1000) + "V");
+  }
 
-  /* 3. Wait for button B to be pressed */
-  buttonB.waitForButton();
-
-
- /* 4. Turn off Yellow LED and clear LCD */
- lcd.clear();
- ledYellow(false);
+  ledYellow(0);
+  lcd.clear();
 
   // Play audible countdown.
   for (int i = 0; i < 3; i++)
   {
     delay(1000);
     buzzer.playNote(NOTE_G(3), 200, 15);
-    while(buzzer.isPlaying());
-    /* 5. play note G in octave 3, for 200 millisecs. Full volume (15) */
   }
   delay(1000);
   buzzer.playNote(NOTE_G(4), 500, 15);
@@ -58,9 +53,7 @@ void waitForButtonAndCountDown()
 
 void setup()
 {
-  /* 1. Initialize ThreeSensors on the lineSensor object */
   lineSensors.initThreeSensors();
-
 
   waitForButtonAndCountDown();
 }
@@ -76,7 +69,6 @@ void loop()
     waitForButtonAndCountDown();
   }
 
-  /* 6. Read line sensor values */
   lineSensors.read(lineSensorValues);
 
   if (lineSensorValues[0] > QTR_THRESHOLD) //flip aligator sign if you want to detect white edges on a black board instead of black border on a white board.
@@ -85,29 +77,23 @@ void loop()
     // right.
     motors.setSpeeds(-REVERSE_SPEED, -REVERSE_SPEED);
     delay(REVERSE_DURATION);
-
-    /* 7. Add three code lines for setting turn speed to turn right (+/- TURN_SPEED),
-     *  add turn duration delay and then continuing forward.
-     */
     motors.setSpeeds(TURN_SPEED, -TURN_SPEED);
     delay(TURN_DURATION);
     motors.setSpeeds(FORWARD_SPEED, FORWARD_SPEED);
   }
   else if (lineSensorValues[NUM_SENSORS - 1] > QTR_THRESHOLD) //flip aligator sign if you want to detect white edges on a black board instead of black border on a white board.
   {
-    /* 8.  If rightmost sensor detects line, reverse and turn to the
-     left. */
-
+    // If rightmost sensor detects line, reverse and turn to the
+    // left.
     motors.setSpeeds(-REVERSE_SPEED, -REVERSE_SPEED);
     delay(REVERSE_DURATION);
-
     motors.setSpeeds(-TURN_SPEED, TURN_SPEED);
     delay(TURN_DURATION);
     motors.setSpeeds(FORWARD_SPEED, FORWARD_SPEED);
   }
   else
   {
-    /* 9. Otherwise, go straight.*/
+    // Otherwise, go straight.
     motors.setSpeeds(FORWARD_SPEED, FORWARD_SPEED);
   }
 }

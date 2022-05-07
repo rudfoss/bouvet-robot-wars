@@ -22,19 +22,22 @@ void loop()
 {
   /* 1. Start playing a tone with frequency 440 Hz at maximum
    volume (15) for 200 milliseconds.*/
+  // buzzer.playFrequency(440, 200, 15);
+  // while(buzzer.isPlaying());
   
 
   /* 2. Delay to give the tone time to finish. Delay with 1000 ms */
-  
 
   /* 3. Start playing note A in octave 4 at maximum volume
    volume (15) for 2000 milliseconds.*/
-  
+  // buzzer.playNote('A', 2000, 15);
+  delay(2000);
+  buzzer.stopPlaying();
 
   /* 4. Wait for 200 ms and stop playing note.*/
 
   
 
 
-  delay(1000);
+  // delay(50);
 }

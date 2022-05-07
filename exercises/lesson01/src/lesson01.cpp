@@ -11,16 +11,12 @@ Zumo32U4LCD lcd;
 void setup()
 {
   lcd.clear();
-  lcd.print(F("Press B"));
+  lcd.print(F("Press b"));
 
   /* 1. Use the waitForButton() function, which blocks and
    * doesn't return until a button press and release are
    * detected. */
-  
-  
-  
-  
-
+  buttonB.waitForButton();
   lcd.clear();
 }
 
@@ -28,16 +24,16 @@ void loop()
 {
   /* 2. Directly read the state of the button with the
    * isPressed() function. */
-  if ()
-  {
-    /* 3. Whenever the button is pressed, turn on the yellow LED.*/
-    
+  if (buttonB.isPressed()) {
+    lcd.print(F("down"));
+    lcd.clear();
+  } else {
+    lcd.print(F("up"));
+    lcd.clear();
   }
-  else
-  {
-    /* 4. Whenever the button is not pressed, turn off the yellow
-     LED.*/
-    
-  }
+  // lcd.print(F("go"));
 
+  // buttonB.waitForButton();
+  // i++;
+  // lcd.clear();
 }
